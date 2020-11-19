@@ -25,4 +25,7 @@ class MyCollectionViewCell: UICollectionViewCell {
     @IBAction func soundPlayButton(_ sender: Any) {
         
     }
+    
+    
+  
 }
