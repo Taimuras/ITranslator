@@ -3,9 +3,14 @@
 import UIKit
 import SwiftGoogleTranslate
 import AVFoundation
+import CoreData
 
 
 class ViewController: UIViewController {
+    
+    var items = [Item]()
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     @IBOutlet weak var transTextLabel: UILabel!
     @IBOutlet weak var textFiled: UITextField!
@@ -51,7 +56,20 @@ class ViewController: UIViewController {
         
         self.hideKeyboardWhenTappedAround()
         SwiftGoogleTranslate.shared.start(with: "AIzaSyD-U-wwU9VldFlKJI2ICBVbt_WqXvyqDmU")
+        
+        
+        historyButton.setTitle("Bla bla bla", for: .normal)
+        
+        setupTranslation()
     }
+    
+    
+    func setupTranslation(){
+        textFiled.placeholder = NSLocalizedString("typeText", comment: "")
+        transTextLabel.text = NSLocalizedString("translation", comment: "")
+        historyButton.setTitle(NSLocalizedString("showHistory", comment: ""), for: .normal)
+    }
+    
     
     func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
@@ -89,12 +107,17 @@ class ViewController: UIViewController {
             self.transTextLabel.text = self.tt
             
             
-
+            
+            let item = Item(context: self.context)
+            item.origin = text
+            item.target = self.transTextLabel.text
+            self.items.insert(item, at: 0)
+            
+            
+            self.saveItems()
         }
         
-        
-        
-        
+    
     }
     
     
@@ -104,6 +127,14 @@ class ViewController: UIViewController {
         myUtterance.rate = 0.3
         synth.speak(myUtterance)
         
+    }
+    
+    func saveItems() {
+        do {
+            try context.save()
+        } catch  {
+            print("Error Saving Context \(error)")
+        }
     }
 }
 

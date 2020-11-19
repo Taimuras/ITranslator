@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "Translation"; ObjectID = "Huq-l3-xaW"; */
+"Huq-l3-xaW.text" = "Translation";
+
+/* Class = "UIButton"; normalTitle = "Show History"; ObjectID = "ITZ-v6-4cf"; */
+"ITZ-v6-4cf.normalTitle" = "Show History";
+
+/* Class = "UILabel"; text = "Russian word"; ObjectID = "PSb-Ef-NZ5"; */
+"PSb-Ef-NZ5.text" = "Russian word";
+
+/* Class = "UITextField"; placeholder = "Type a text"; ObjectID = "Y8r-EG-KXV"; */
+"Y8r-EG-KXV.placeholder" = "Type a text";
+
+/* Class = "UINavigationItem"; title = "iTranslator"; ObjectID = "aF7-or-Irg"; */
+"aF7-or-Irg.title" = "iTranslator";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "hrG-ks-Ek3"; */
+"hrG-ks-Ek3.title" = "Back";
+
+/* Class = "UILabel"; text = "English word"; ObjectID = "rnd-kg-b2a"; */
+"rnd-kg-b2a.text" = "English word";
